@@ -4,7 +4,7 @@
 	var canvas = document.querySelector('#webgl');
 
 	// Scroll variables
-	var scroll = 0.0, velocity = 0.0, lastScroll = 0.0;
+	var scroll = 0.0, velocity = 5.0, lastScroll = 0.0;
 
 	// Initialize REGL from a canvas element
 	var regl = createREGL({
@@ -31,7 +31,7 @@
 				resolution: regl.prop('resolution'),
 				aspect: regl.prop('aspect'),
 				scroll: regl.prop('scroll'),
-				velocity: 5000,
+				velocity: regl.prop('velocity'),
 				texture: regl.texture(img)
 			}
 		});
