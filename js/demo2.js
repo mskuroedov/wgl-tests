@@ -18,7 +18,7 @@
 	var img = new Image();
 	img.src = './img/img1.jpg';
 	img.onload = function() {
-		setTimeout(function() { document.body.classList.remove('loading');}, 1000);
+		setTimeout(function() { document.body.classList.remove('loading');}, 600);
 
 		// Create a REGL draw command
 		var draw = regl({
