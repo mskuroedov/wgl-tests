@@ -18,7 +18,7 @@
 	var img = new Image();
 	img.src = './img/img1.jpg';
 	img.onload = function() {
-		setTimeout(function() { document.body.classList.remove('loading');}, 100);
+		setTimeout(function() { document.body.classList.remove('loading');}, 1000);
 
 		// Create a REGL draw command
 		var draw = regl({
@@ -31,7 +31,7 @@
 				resolution: regl.prop('resolution'),
 				aspect: regl.prop('aspect'),
 				scroll: regl.prop('scroll'),
-				velocity: regl.prop('velocity'),
+				velocity: 5000,
 				texture: regl.texture(img)
 			}
 		});
