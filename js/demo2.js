@@ -4,7 +4,7 @@
 	var canvas = document.querySelector('#webgl');
 
 	// Scroll variables
-	var scroll = 0.0, velocity = 1.0, lastScroll = 0.0;
+	var scroll = 0.0, velocity = -1.0, lastScroll = 0.0;
 
 	// Initialize REGL from a canvas element
 	var regl = createREGL({
