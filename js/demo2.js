@@ -1,11 +1,8 @@
 !function() {
 	'use strict';
-
 	var canvas = document.querySelector('#webgl');
-
 	// Scroll variables
 	var scroll = 0.0, velocity = 0.0, lastScroll = 0.0;
-
 	// Initialize REGL from a canvas element
 	var regl = createREGL({
 		canvas: canvas,
@@ -13,13 +10,11 @@
 			if (error) { alert(error); }
 		}
 	});
-
 	// Loading a texture
 	var img = new Image();
 	img.src = './img/img1.jpg';
 	img.onload = function() {
 		setTimeout(function() { document.body.classList.remove('loading');}, 1000);
-
 		// Create a REGL draw command
 		var draw = regl({
 			frag: document.querySelector('#fragmentShader').textContent,
@@ -35,26 +30,20 @@
 				texture: regl.texture(img)
 			}
 		});
-
 		// Hook a callback to execute each frame
 		regl.frame(function(ctx) {
-
 			// Resize a canvas element with the aspect ratio (100vw, 100vh)
 			var aspect = canvas.scrollWidth / canvas.scrollHeight;
 			canvas.width = 1024 * aspect;
 			canvas.height = 1024;
-
 			// Scroll amount (0.0 to 1.0)
 			scroll = 0;
-
 			// Scroll Velocity
 			// Inertia example:
 			// velocity = velocity * 0.99 + (scroll - lastScroll);
 			// lastScroll = scroll;
-
 			// Clear the draw buffer
 			regl.clear({ color: [0, 0, 0, 0] });
-
 			// Execute a REGL draw command
 			draw({
 				globaltime: ctx.time,
@@ -65,5 +54,4 @@
 			});
 		});
 	};
-
 }();
